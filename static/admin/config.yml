@@ -1,21 +1,21 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  repo: linlinyu75-png/novel-site
+  branch: main
+  auth_type: pkce
+  app_id: Ov23liDVN73dv3zwCqmC
 
-publish_mode: editorial_workflow
-
-media_folder: static/img
-public_folder: /img
+media_folder: static/images/uploads
+public_folder: /images/uploads
 
 collections:
-  - name: "shops"
-    label: "Shop"
-    folder: "src/pages/shops"
+    - name: novel
+    label: 小說章節
+    folder: content/novel
     create: true
-    slug: "{{name}}" # this will be filename
+    slug: "{{slug}}"
     fields:
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Area", name: "area", widget: "string"}
-      - {label: "Address", name: "address", widget: "string"}
-      - {label: "Postcode", name: "postcode", widget: "string"}
-      - {label: "Outcode", name: "outcode", widget: "string"}
+            - {label: "標題", name: "title", widget: "string"}
+            - {label: "日期", name: "date", widget: "datetime"}
+            - {label: "章節編號", name: "chapter", widget: "number", value_type: "int"}
+            - {label: "內容", name: "body", widget: "markdown"}
